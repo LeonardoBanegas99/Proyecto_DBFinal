@@ -9,9 +9,11 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -139,6 +141,20 @@ public class Principal extends javax.swing.JFrame {
         jComboBox9 = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
+        jd_Informes_a = new javax.swing.JDialog();
+        jLabel45 = new javax.swing.JLabel();
+        bt_AgregarAlquiler1 = new javax.swing.JButton();
+        bt_AgregarAlquiler2 = new javax.swing.JButton();
+        bt_AgregarAlquiler3 = new javax.swing.JButton();
+        jd_Informes = new javax.swing.JDialog();
+        jLabel46 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_comercio = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jb_Proveedor = new javax.swing.JButton();
         jb_Producto = new javax.swing.JButton();
@@ -147,6 +163,7 @@ public class Principal extends javax.swing.JFrame {
         jb_Maquina = new javax.swing.JButton();
         jb_Reparacion = new javax.swing.JButton();
         jb_Alquiler = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
 
         jLabel2.setFont(new java.awt.Font("MS UI Gothic", 0, 48)); // NOI18N
         jLabel2.setText("Proveedor");
@@ -997,6 +1014,130 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(103, Short.MAX_VALUE))
         );
 
+        jLabel45.setFont(new java.awt.Font("MS UI Gothic", 0, 48)); // NOI18N
+        jLabel45.setText("Informes");
+
+        bt_AgregarAlquiler1.setFont(new java.awt.Font("MS UI Gothic", 0, 24)); // NOI18N
+        bt_AgregarAlquiler1.setText("Minoristas");
+        bt_AgregarAlquiler1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_AgregarAlquiler1MouseClicked(evt);
+            }
+        });
+
+        bt_AgregarAlquiler2.setFont(new java.awt.Font("MS UI Gothic", 0, 24)); // NOI18N
+        bt_AgregarAlquiler2.setText("Global");
+        bt_AgregarAlquiler2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_AgregarAlquiler2MouseClicked(evt);
+            }
+        });
+
+        bt_AgregarAlquiler3.setFont(new java.awt.Font("MS UI Gothic", 0, 24)); // NOI18N
+        bt_AgregarAlquiler3.setText("Mayoristas");
+        bt_AgregarAlquiler3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_AgregarAlquiler3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_Informes_aLayout = new javax.swing.GroupLayout(jd_Informes_a.getContentPane());
+        jd_Informes_a.getContentPane().setLayout(jd_Informes_aLayout);
+        jd_Informes_aLayout.setHorizontalGroup(
+            jd_Informes_aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_Informes_aLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(jd_Informes_aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_AgregarAlquiler2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_AgregarAlquiler1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_AgregarAlquiler3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45))
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+        jd_Informes_aLayout.setVerticalGroup(
+            jd_Informes_aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_Informes_aLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel45)
+                .addGap(42, 42, 42)
+                .addComponent(bt_AgregarAlquiler3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(bt_AgregarAlquiler1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(bt_AgregarAlquiler2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+
+        jLabel46.setFont(new java.awt.Font("MS UI Gothic", 0, 48)); // NOI18N
+        jLabel46.setText("Informes");
+
+        jt_comercio.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Numero", "Nombre", "Recaudacion Total", "Provee", "Porcentaje Ingreso"
+            }
+        ));
+        jScrollPane1.setViewportView(jt_comercio);
+
+        jMenu1.setText("Informe");
+
+        jMenuItem1.setText("Mayoristas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Minorista");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Global");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        jd_Informes.setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout jd_InformesLayout = new javax.swing.GroupLayout(jd_Informes.getContentPane());
+        jd_Informes.getContentPane().setLayout(jd_InformesLayout);
+        jd_InformesLayout.setHorizontalGroup(
+            jd_InformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_InformesLayout.createSequentialGroup()
+                .addGroup(jd_InformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_InformesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_InformesLayout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addComponent(jLabel46)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jd_InformesLayout.setVerticalGroup(
+            jd_InformesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_InformesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel46)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
 
@@ -1059,54 +1200,66 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jButton13.setFont(new java.awt.Font("MS UI Gothic", 0, 36)); // NOI18N
+        jButton13.setText("Informes");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(571, 571, 571))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jb_Proveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_Producto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(404, 404, 404)
+                        .addGap(274, 274, 274)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jb_Producto, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jb_Proveedor))
+                        .addGap(188, 188, 188)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jb_Tecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(205, 205, 205)
-                                .addComponent(jb_Reparacion))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jb_Comercio)
-                                .addGap(294, 294, 294)
-                                .addComponent(jb_Maquina))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(645, 645, 645)
-                        .addComponent(jb_Alquiler)))
-                .addContainerGap(243, Short.MAX_VALUE))
+                                .addGap(257, 257, 257)
+                                .addComponent(jb_Maquina))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jb_Tecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(153, 153, 153)
+                                .addComponent(jb_Reparacion)))))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(jb_Alquiler)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addGap(233, 233, 233))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel1)
-                .addGap(149, 149, 149)
+                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_Proveedor)
                     .addComponent(jb_Comercio)
                     .addComponent(jb_Maquina))
-                .addGap(153, 153, 153)
+                .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_Producto)
                     .addComponent(jb_Tecnico)
                     .addComponent(jb_Reparacion))
-                .addGap(103, 103, 103)
-                .addComponent(jb_Alquiler)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13)
+                    .addComponent(jb_Alquiler))
+                .addGap(91, 91, 91))
         );
 
         pack();
@@ -1483,6 +1636,41 @@ public class Principal extends javax.swing.JFrame {
         UpdateMaquina();
     }//GEN-LAST:event_jButton12MouseClicked
 
+    private void bt_AgregarAlquiler1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AgregarAlquiler1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_AgregarAlquiler1MouseClicked
+
+    private void bt_AgregarAlquiler2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AgregarAlquiler2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_AgregarAlquiler2MouseClicked
+
+    private void bt_AgregarAlquiler3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_AgregarAlquiler3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_AgregarAlquiler3MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+        jd_Informes.pack();
+        jd_Informes.setModal(true);
+        jd_Informes.setVisible(true);
+        jd_Informes.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        CargarComercioMayoristas();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        CargarComercioMinoristas();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        CargarComercio();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1515,6 +1703,9 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_AgregarAlquiler;
+    private javax.swing.JButton bt_AgregarAlquiler1;
+    private javax.swing.JButton bt_AgregarAlquiler2;
+    private javax.swing.JButton bt_AgregarAlquiler3;
     private javax.swing.JButton bt_AgregarMaquina;
     private javax.swing.JButton bt_AgregarReparacion;
     private javax.swing.JButton bt_AgregarTecnico;
@@ -1533,6 +1724,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1588,11 +1780,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jb_AgregarComercio;
     private javax.swing.JButton jb_AgregarProv;
     private javax.swing.JButton jb_Alquiler;
@@ -1604,11 +1804,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_Tecnico;
     private javax.swing.JDialog jd_Alquiler;
     private javax.swing.JDialog jd_Comercio;
+    private javax.swing.JDialog jd_Informes;
+    private javax.swing.JDialog jd_Informes_a;
     private javax.swing.JDialog jd_Maquina;
     private javax.swing.JDialog jd_Producto;
     private javax.swing.JDialog jd_Proveedor;
     private javax.swing.JDialog jd_Reparacion;
     private javax.swing.JDialog jd_Tecnico;
+    private javax.swing.JTable jt_comercio;
     private javax.swing.JSpinner sp_Fallo;
     private javax.swing.JSpinner sp_Ingreso;
     private javax.swing.JTextField tf_IDProducto;
@@ -2155,5 +2358,92 @@ public class Principal extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    private void CargarComercioMayoristas(){
+        
+        Connection cn;
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            cn = DriverManager.getConnection(cadena, usuario, pass);
+            Statement state = cn.createStatement();
+            ResultSet res = state.executeQuery("select * from vista_mayorista");
+            DefaultTableModel modelo = (DefaultTableModel) jt_comercio.getModel();
+            modelo.setRowCount(0);
+            while (res.next()) {
+              Vector v = new Vector(); 
+              v.add(res.getInt(1));
+              v.add(res.getString(2));
+              v.add(res.getString(3));
+              v.add(res.getString(4));
+              v.add(res.getString(5));
+              
+              modelo.addRow(v);
+              jt_comercio.setModel(modelo);
+              
+            }
+            //jComboBox4.setModel(modelo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+    }
+    
+    private void CargarComercioMinoristas(){
+        
+        Connection cn;
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            cn = DriverManager.getConnection(cadena, usuario, pass);
+            Statement state = cn.createStatement();
+            ResultSet res = state.executeQuery("select * from vista_minorista");
+            DefaultTableModel modelo = (DefaultTableModel) jt_comercio.getModel();
+            modelo.setRowCount(0);
+            while (res.next()) {
+              Vector v = new Vector(); 
+              v.add(res.getInt(1));
+              v.add(res.getString(2));
+              v.add(res.getString(3));
+              v.add(res.getString(4));
+              v.add(res.getString(5));
+              
+              modelo.addRow(v);
+              jt_comercio.setModel(modelo);
+              
+            }
+            //jComboBox4.setModel(modelo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+    }
+    
+    private void CargarComercio(){
+        
+        Connection cn;
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            cn = DriverManager.getConnection(cadena, usuario, pass);
+            Statement state = cn.createStatement();
+            ResultSet res = state.executeQuery("select * from vista_comercio");
+            DefaultTableModel modelo = (DefaultTableModel) jt_comercio.getModel();
+            modelo.setRowCount(0);
+            while (res.next()) {
+              Vector v = new Vector(); 
+              v.add(res.getInt(1));
+              v.add(res.getString(2));
+              v.add(res.getString(3));
+              v.add(res.getString(4));
+              v.add(res.getString(5));
+              
+              modelo.addRow(v);
+              jt_comercio.setModel(modelo);
+              
+            }
+            //jComboBox4.setModel(modelo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
     }
 }
